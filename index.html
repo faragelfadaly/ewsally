@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>
+	   White Folio - intense, emotive, white portfolio. 
+    </title>
+ 
+    <meta name="author" content="Sara Presenti for Your Inspiration Web [http://www.yourinspirationweb.com] " />
+    <meta name="keywords" content="" />
+ 	<meta name="description" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <!-- CSS -->
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<link rel="stylesheet" href="css/galleriffic-2.css" type="text/css" />
+	
+	 <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	
+	<!-- JAVASCRIPT -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/verticalscroller.js"></script>
+	<script type="text/javascript" src="js/jquery.galleriffic.js"></script>
+	<script type="text/javascript" src="js/jquery.opacityrollover.js"></script>
+	<script type="text/javascript" src="js/contact_form.js"></script>
+	
+	<!-- We only want the thunbnails to display when javascript is disabled -->
+	<script type="text/javascript" src="js/noscript.js"></script>
+	
+</head>
+<body>
+	<!-- CONTAINER -->
+	<div class="container">
+		
+		<!-- LOGO + NAV  -->
+		<div class="logo" id="top">
+			<img src="images/logo.gif" alt="logo" />
+		</div>
+		
+		<div class="TopNavigation">
+			<ul class="nav">
+				<li class="active">Home</li>
+				
+				<li><a href="service.html">Services</a></li>
+
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="about.html">About</a></li>
+			</ul>
+			
+			<div class="social">
+				<a href="#"><img src="images/icons/twitter.gif" alt="Read my tweets" /></a>
+				<a href="#"><img src="images/icons/feed.gif" alt="Subscribe feed" /></a>
+				<a href="#"><img src="images/icons/mail.gif" alt="Send a message" /></a>
+			</div>
+		</div>
+		<!-- END LOGO + NAV  -->
+		
+<!--		 SLIDER 	
+		<div id="slider"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this rotator.</div>
+
+		<script type="text/javascript" src="http://www.yourinspirationweb.com/WhiteFolio/swfobject.js"></script>
+		<script type="text/javascript">
+			var s1 = new SWFObject("http://www.yourinspirationweb.com/WhiteFolio/imagerotator.swf","rotator","940","368","7");
+			s1.addVariable("file","http://www.yourinspirationweb.com/WhiteFolio/madrid.xml");
+			s1.addVariable("width","940");
+			s1.addVariable("height","368");
+			s1.addVariable("transition","blocks");
+			s1.addVariable("shownavigation","false");
+			s1.addParam("wmode","opaque");
+			s1.write("slider");
+		</script>
+		<br/>
+		<img src="images/shadow.gif" alt="" class="shadow"/>
+		 END SLIDER -->
+
+
+
+		
+	
+		
+
+						
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	// We only want these styles applied when javascript is enabled
+	$('div.navigation').css({'width' : '300px', 'float' : 'left'});
+	$('div.content').css('display', 'block');
+
+	// Initially set opacity on thumbs and add
+	// additional styling for hover effect on thumbs
+	var onMouseOutOpacity = 0.67;
+	$('#thumbs ul.thumbs li').opacityrollover({
+		mouseOutOpacity:   onMouseOutOpacity,
+		mouseOverOpacity:  1.0,
+		fadeSpeed:         'fast',
+		exemptionSelector: '.selected'
+	});
+	
+	// Initialize Advanced Galleriffic Gallery
+	var gallery = $('#thumbs').galleriffic({
+		delay:                     2500,
+		numThumbs:                 15,
+		preloadAhead:              10,
+		enableTopPager:            true,
+		enableBottomPager:         true,
+		maxPagesToShow:            7,
+		imageContainerSel:         '#slideshow',
+		controlsContainerSel:      '#controls',
+		captionContainerSel:       '#caption',
+		loadingContainerSel:       '#loading',
+		renderSSControls:          true,
+		renderNavControls:         true,
+		playLinkText:              'Play Slideshow',
+		pauseLinkText:             'Pause Slideshow',
+		prevLinkText:              '&lsaquo; Previous Photo',
+		nextLinkText:              'Next Photo &rsaquo;',
+		nextPageLinkText:          'Next &rsaquo;',
+		prevPageLinkText:          '&lsaquo; Prev',
+		enableHistory:             false,
+		autoStart:                 false,
+		syncTransitions:           true,
+		enableKeyboardNavigation:  false,
+		defaultTransitionDuration: 900,
+		onSlideChange:             function(prevIndex, nextIndex) {
+			// 'this' refers to the gallery, which is an extension of $('#thumbs')
+			this.find('ul.thumbs').children()
+				.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+				.eq(nextIndex).fadeTo('fast', 1.0);
+		},
+		onPageTransitionOut:       function(callback) {
+			this.fadeTo('fast', 0.0, callback);
+		},
+		onPageTransitionIn:        function() {
+			this.fadeTo('fast', 1.0);
+		}
+	});
+});
+</script>
+	
+<!-- FOOTER  -->
+		<p class="footer">
+			Copyright &copy; 2010 White Portfolio. All Rights Reserved. Made by <a href="http://www.mascaradesign.it">Mascara Design</a> 
+			for <a href="http://www.yourinspirationweb.com/en"> Your Inspiration Web.</a>
+		</p>
+		<!-- END FOOTER -->
+		
+	</div>
+	<!-- END CONTAINER -->
+
+</body>
+</html>
